@@ -1,3 +1,6 @@
+# module specifics
+python_remote_object/__pycache__/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
