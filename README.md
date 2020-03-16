@@ -80,4 +80,8 @@ virtual environment in the main directory:
 ```
 
 ## Uploading to PyPI
+```python
+ (venv) $ python3 -m twine upload dist/*
+```
+
 See: [https://packaging.python.org/tutorials/packaging-projects/]
