@@ -80,3 +80,4 @@ virtual environment in the main directory:
 ```
 
 ## Uploading to PyPI
+See: [https://packaging.python.org/tutorials/packaging-projects/]
