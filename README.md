@@ -78,3 +78,5 @@ virtual environment in the main directory:
 ```bash
  (venv) $ python3 setup.py sdist bdist_wheel 
 ```
+
+## Uploading to PyPI
