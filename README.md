@@ -12,6 +12,20 @@ hardware remotely.
 For example, one could connect a raspberry pi up to their digital oscilloscope
 via usb, and now your oscilloscope is "wifi-enabled"
 
+# Installation
+## Pip
+To get the current stable version, install using pip:
+```bash
+ $ pip3 install python_remote_object
+```
+## Development Version
+To get the development version, clone this repo, then inside the folder create a `python3` virtual environment, activate it, and install using setuptools:
+```bash
+ $ python3 -m venv venv
+ $ source venv/bin/activate
+ (venv) $ python3 setup.py install
+ ```
+
 # Basic Use
 
 If you have an instance of a python object, `pyobj`, using the base server
