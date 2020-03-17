@@ -76,7 +76,7 @@ virtual environment in the main directory:
 
 ## Creating source packages
 ```bash
- (venv) $ python3 setup.py sdist bdist_wheel 
+ (venv) $ python3 config.py sdist bdist_wheel 
 ```
 
 ## Uploading to PyPI
