@@ -80,7 +80,7 @@ virtual environment in the main directory:
 ```
 
 ## Uploading to PyPI
-```python
+```bash
  (venv) $ python3 -m twine upload dist/*
 ```
 
