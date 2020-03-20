@@ -5,8 +5,8 @@ Run this script in two different terminals:
 '''
 
 from sys import argv
-from python_remote_object.server import Server
-from python_remote_object.client import Client
+from remote_object.server import Server
+from remote_object.client import Client
 
 HOST, PORT = 'localhost', 9999
 

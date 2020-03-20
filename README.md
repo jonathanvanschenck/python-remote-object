@@ -16,7 +16,7 @@ via usb, and now your oscilloscope is "wifi-enabled"
 ## Pip
 To get the current stable version, install using pip:
 ```bash
- $ pip3 install python_remote_object
+ $ pip3 install remote_object
 ```
 ## Development Version
 To get the development version, clone this repo, then inside the folder create a `python3` virtual environment, activate it, and install using setuptools:
@@ -29,10 +29,10 @@ To get the development version, clone this repo, then inside the folder create a
 # Basic Use
 
 If you have an instance of a python object, `pyobj`, using the base server
-class `python_remote_object.server.Server` will allow you to create a TCP server
+class `remote_object.server.Server` will allow you to create a TCP server
 which hosts `pyobj`.
 
-On the client end, you must create an instance of the `python_remote_object.client.Client`
+On the client end, you must create an instance of the `remote_object.client.Client`
 object pointed at the server's address and port. By default, calling a method
 on the `Client` instance will pass that call across the TCP connection to the
 server, where the `Server` instance will make that method call on `pyobj`. Any
@@ -41,7 +41,7 @@ raised or returned respectively.
 
 For example, the server might look like:
 ```python
-from python_remote_object.server import Server
+from remote_object.server import Server
 
 HOST, PORT = 'your-ip-address', 9999
 
@@ -61,7 +61,7 @@ with Server((HOST, PORT),Test()) as server:
 ```
 The client might then look like:
 ```python
-from python_remote_object.server import Client
+from remote_object.server import Client
 
 with Client(HOST, PORT) as client:
     print(client) # prints: <Remote Wrapper <Test Class>>    
@@ -71,7 +71,7 @@ with Client(HOST, PORT) as client:
 ```
 
 Note here that attributes are treated like methods without arguments, and 
-attempting to call method which does not exist will raise a `python_remote_object.errors.CallMethodError`,
+attempting to call method which does not exist will raise a `remote_object.errors.CallMethodError`,
 which is raised from the server-side error (`AttributeError`).
 
 See `examples` for additional info.

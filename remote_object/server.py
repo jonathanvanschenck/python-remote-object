@@ -7,7 +7,7 @@ import pickle
 from .errors import TraceableError
 
 class Server(socketserver.TCPServer):
-    """A python_remote_object server.Server object
+    """A remote_object server.Server object
     
     This class is intended to host a python object so that 
     method calls made on a client.Client instance pointed at

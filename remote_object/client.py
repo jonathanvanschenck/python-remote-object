@@ -16,7 +16,7 @@ BUFFER_SIZE = 1024
 TIMEOUT = 3 # seconds
 
 class Client:
-    """A python_remote_object Client.
+    """A remote_object Client.
     
     This class allows a use to check attributes and make method calls
     on a python object hosted by the server.Server class. This is
@@ -91,7 +91,7 @@ class Client:
         return f
 
 class MessageSocket(socket.socket):
-    """A TCP socket wrapper for use by a python_remote_object.client.Client instance
+    """A TCP socket wrapper for use by a remote_object.client.Client instance
     
     This class inherits from the base socket.socket class, see that 
     documentation for details on the TCP socket connection. The 

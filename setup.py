@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="python-remote-object",
-    version="0.2",
+    name="remote-object",
+    version="0.2.1",
     author="Jonathan D B Van Schenck",
     author_email="vanschej@oregonstate.edu",
     description="A TCP-based server/client library for making method calls from a client to a python object on the server",
