@@ -12,7 +12,7 @@ def mixin_error(error,msg=""):
     # Create new error which inherits from both the base
     #  class and _CallMethodError, so the new error can
     #  be caught by both execpt types
-    class CallMethodError(error__class__,_CallMethodError):
+    class CallMethodError(error.__class__,_CallMethodError):
         pass
     return CallMethodError(msg)
 
