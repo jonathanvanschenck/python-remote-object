@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="remote-object",
-    version="0.2.3",
+    version="0.2.4",
     author="Jonathan D B Van Schenck",
     author_email="vanschej@oregonstate.edu",
     description="A TCP-based server/client library for making method calls from a client to a python object on the server",
@@ -19,4 +19,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
+    install_requires = ['cloudpickle>=1.4.1']
 )
