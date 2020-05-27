@@ -3,7 +3,7 @@ Python TCP server and client which allows clients to make calls and get returns
 from a python object instantiated on the server.
 
 This package was originally developed to be used along side `pyUSB`, `serial`,
-`pyVISA`, etc, where an external hardware component could be connected to a 
+`pyVISA`, etc, where an external hardware component could be connected to a
 computer for which a python-based API for the component already existed. This
 package could then take an instance of that python driver, and allow other
 computers (potentially off-site) to make API calls and so control the external
@@ -11,6 +11,14 @@ hardware remotely.
 
 For example, one could connect a raspberry pi up to their digital oscilloscope
 via usb, and now your oscilloscope is "wifi-enabled"
+
+# Security Note
+ONLY INTERACT WITH SERVERS THAT YOU TRUST. The `remote_object.client.Client`
+object uses `pickle.load` to deserialize data and objects from the server. This
+process is able to execute arbitrary code on your machine. This can easily be
+exploited by malicious agents to compromise your system. The `pickle` library,
+and by extension `python-remote-object`, leave it to the user to make wise
+decisions about what they chose to unpickle. Be smart.
 
 # Installation
 ## Pip
@@ -36,7 +44,7 @@ On the client end, you must create an instance of the `remote_object.client.Clie
 object pointed at the server's address and port. By default, calling a method
 on the `Client` instance will pass that call across the TCP connection to the
 server, where the `Server` instance will make that method call on `pyobj`. Any
-errors or return values will then be passed back to the `Client` instance and 
+errors or return values will then be passed back to the `Client` instance and
 raised or returned respectively.
 
 For example, the server might look like:
@@ -48,10 +56,10 @@ HOST, PORT = 'your-ip-address', 9999
 class Test:
     def __init__(self):
         self.a = "attribute a"
-        
+
     def __repr__(self):
         return "<Test Class>"
-        
+
     def b(self,message):
         return "method b: " + message
 
@@ -67,14 +75,13 @@ with Client(HOST, PORT) as client:
     print(client) # prints: <Remote Wrapper <Test Class>>    
     print(client.a()) # prints "attribute a"
     print(client.b("Hello!")) # prints "method b: Hello!"
-    print(client.c()) # raises CallMethodError from AttributeError
+    print(client.c()) # raises AttributeError
 ```
 
-Note here that attributes are treated like methods without arguments, and 
-attempting to call method which does not exist will raise a `remote_object.errors.CallMethodError`,
-which is raised from the server-side error (`AttributeError`).
+Note here that attributes are treated like methods without arguments, and
+attempting to call method which does not exist will raise an `AttributeError`.
 
-See `examples` for additional info.
+See `examples/errors` for additional info.
 
 # Development
 For development, clone this directory, then have fun! Pro-tip: setup a python
@@ -90,7 +97,7 @@ virtual environment in the main directory:
 
 ## Creating source packages
 ```bash
- (venv) $ python3 setup.py sdist bdist_wheel 
+ (venv) $ python3 setup.py sdist bdist_wheel
 ```
 
 ## Uploading to PyPI
